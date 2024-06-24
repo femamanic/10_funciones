@@ -11,39 +11,60 @@ int main(){
     int op;
     do {
         system("cls");
-        cout << "CAJERO AUTOMATICO\n";
+        cout << "=====================\n";
+        cout << "  CAJERO AUTOMATICO\n";
+        cout << "=====================\n";
         cout << "[1] Depositar\n";
         cout << "[2] Retirar\n";
         cout << "[3] Mostrar saldo\n";
         cout << "[0] Salir\n";
+        cout << "=====================\n";
         cout << "Seleccione una opcion: ";
         cin >> op;
         switch (op){
         case 1:
-            cout << "Ingrese el monto a depositar: ";
-            cin >> dep;
-            depositar(dep);
-            cout << "Deposito exitoso\n";
+            system("cls");
+            cout << "Ingrese el monto a depositar: \n";
+            cout << "============================\n";
+            cin >> dep; depositar(dep);
+            cout << "============================\n";
+            cout << "Deposito exitoso ...\n";
             system("pause>nul");
             break;
         case 2:
-            cout << "Ingrese el monto a retirar: ";
+            system("cls");
+            cout << "============================\n";
+            cout << "Ingrese el monto a retirar: \n";
+            cout << "============================\n";
             cin >> ret;
-            retirar(ret);
-            cout << "Retiro exitoso\n";
+            if (ret > saldo){
+                cout << "============================\n";
+                cout << "Saldo insuficiente ...\n";
+                system("pause>nul");
+                break;
+            }
+            else {retirar(ret);
+            cout << "============================\n";
+            cout << "Retiro exitoso ...\n";
             system("pause>nul");
             break;
+            }
         case 3:
-            cout << "Mostrando saldo ...\n"
-                << saldo << "\n";
+            system("cls");
+            cout << "============================\n";
+            cout << "Su saldo es: \n";
+            cout << "============================\n";
+            cout << saldo << "\n";
             system("pause>nul");
             break;
         case 0:
+            system("cls");
             cout << "Saliendo ...\n";
             system("pause>nul");
             break;
         default :
-            cout << "Opcion no valida\n";
+            system("cls");
+            cout << "Opcion no valida ...\n";
             system("pause>nul");
             break;
         }
