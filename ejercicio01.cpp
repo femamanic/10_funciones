@@ -5,11 +5,25 @@ using namespace std;
 void areaCirculo(float);
 
 int main () {
-    float r;
+    float r, op;
+    do {
     system("cls");
-    cout << "Ingrese el radio del circulo: "; cin >> r;
-    areaCirculo(r);
-    system("pause>nul");
+        cout << "CACLCULAR AREA DE UN CIRCULO\n";
+        cout << "--------------------------------\n";
+        cout << "Ingrese el radio del circulo: "; cin >> r;
+        if (r <= 0) {
+            cout << "El radio debe ser mayor a 0\n";
+            system("pause>nul");
+            system("cls");
+        }
+        else {
+            cout << "--------------------------------\n"; 
+            areaCirculo(r);
+            system("pause>nul");
+            system("cls");
+        }
+        cout << "Desea calcular el area de otro circulo?\n[1] Si\n[2] No\n"; cin >> op;
+    } while (op == 1);
     return 0;
 }
 
