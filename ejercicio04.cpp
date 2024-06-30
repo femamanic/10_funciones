@@ -6,15 +6,35 @@ using namespace std;
 void calcularRaices(int, int, int);
 
 int main() {
-    system("cls");
-    int a, b, c;
-    cout << "Ingrese el coeficiente a: "; cin >> a;
-    cout << "Ingrese el coeficiente b: "; cin >> b;
-    cout << "Ingrese el coeficiente c: "; cin >> c;
-    int d = pow(b, 2) - 4 * a * c;
-    cout << "El discriminante es: " << d << "\nLas raices son:\n";
-    calcularRaices(a, b, d);
-    system("pause>nul");
+    int a, b, c, op;
+    do {
+        system("cls");
+        cout << "CALCULAR RAICES DE UNA ECUACION CUADRATICA\n";
+        cout << "\t     ax^2 + bx + c = 0\n";
+        cout << "------------------------------------------\n";
+        cout << "Ingrese el coeficiente a: "; cin >> a;
+        cout << "Ingrese el coeficiente b: "; cin >> b;
+        cout << "Ingrese el coeficiente c: "; cin >> c;
+        if (a == 0) {
+            cout << "------------------------------------------\n";
+            cout << "El coeficiente 'a' no puede ser 0.\n";
+            system("pause>nul");
+        }
+        else {
+            int d = pow(b, 2) - 4 * a * c;
+            cout << "------------------------------------------\n";
+            cout << "El discriminante es: " << d << "\n------------------------------------------\n" << "Las raices son:\n";
+            calcularRaices(a, b, d);
+            system("pause>nul");
+        }
+        system("cls");
+        cout << "Desea calcular otra ecuacion cuadratica?\n[1] Si\n[2] No\n"; cin >> op;
+    } while (op == 1);
+    if (op != 1) {
+        system("cls");
+        cout << "Gracias por usar el programa.\n\nSaliendo...\n";
+        system("pause>nul");
+    }
     return 0;
 }
 
