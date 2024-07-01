@@ -8,24 +8,45 @@ void discriminante(int, int, int, int&);
 void calcularRaices(int, int, int, complex<double>&, complex<double>&);
 
 int main() {
-    system("cls");
-    int a, b, c, d;
+    int a, b, c, d, op;
     complex <double> r1, r2;
-    cout << "Ingrese el coeficiente a: "; cin >> a;
-    cout << "Ingrese el coeficiente b: "; cin >> b;
-    cout << "Ingrese el coxeficiente c: "; cin >> c;
-    discriminante(a, b, c, d);
-    calcularRaices(a, b, d, r1, r2);
-    if (d >= 0) {
-        cout << "Soluciones reales:\n";
-        cout << "r1 = " << r1.real() << "\n"; // Parte real (.real())
-        cout << "r2 = " << r2.real() << "\n"; // Parte real (.real())
-    } else {
-        cout << "Soluciones complejas:\n";
-        cout << "r1 = " << r1.real() << " + " << r1.imag() << "i\n"; // Parte real e imaginaria (.real() y .imag())
-        cout << "r2 = " << r2.real() << " - " << r2.imag() << "i\n"; // Parte real e imaginaria (.real() y .imag())
+    do {
+        system("cls");
+        cout << "CALCULAR RAICES DE UNA ECUACION CUADRATICA\n";
+        cout << "------------------------------------------\n";
+        cout << "Ingrese el coeficiente a: "; cin >> a;
+        cout << "Ingrese el coeficiente b: "; cin >> b;
+        cout << "Ingrese el coeficiente c: "; cin >> c;
+        cout << "------------------------------------------\n";
+        discriminante(a, b, c, d);
+        calcularRaices(a, b, d, r1, r2);
+        if (a == 0) {
+            cout << "El coeficiente a no puede ser 0\n";
+            system("pause>nul");
+        }
+        else {
+            cout << "La discriminante es: " << d << "\n";
+            cout << "------------------------------------------\n";
+            if (d >= 0) {
+                cout << "Soluciones reales:\n";
+                cout << "r1 = " << r1.real() << "\n"; // Parte real (.real())
+                cout << "r2 = " << r2.real() << "\n"; // Parte real (.real())
+            }
+            else {
+                cout << "Soluciones complejas:\n";
+                cout << "r1 = " << r1.real() << " + " << r1.imag() << "i\n"; // Parte real e imaginaria (.real() y .imag())
+                cout << "r2 = " << r2.real() << " - " << r2.imag() << "i\n"; // Parte real e imaginaria (.real() y .imag())
+            }
+        system("pause>nul");
+        }
+        system("cls");
+        cout << "Desea calcular otra ecuacion cuadratica?\n[1] Si\n[2] No\n"; cin >> op;
+    } while (op == 1);
+    if (op != 1) {
+        system("cls");
+        cout << "Gracias por usar el programa.\n\nSaliendo...";
+        system("pause>nul");
     }
-    system("pause>nul");
     return 0;
 }
 
